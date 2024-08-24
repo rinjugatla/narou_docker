@@ -8,4 +8,4 @@ services:
             - "8200:8200"
             - "8201:8201"
         volumes:
-            - "./data:/opt/narou"
+            - "./novel_data:/opt/narou"
