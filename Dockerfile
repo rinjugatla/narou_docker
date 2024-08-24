@@ -12,13 +12,10 @@ RUN apt-get update && \
     locale-gen ja_JP.UTF-8 && \
     update-locale LANG=ja_JP.UTF-8 && \
     apt-get install -y --no-install-recommends \
-      default-jdk \
-      build-essential \
-      unzip wget && \
-    rm -rf /var/lib/apt/lists/* && \
-    cd /tmp && \
-    wget https://github.com/rogenobl/narou/releases/download/p0.4/pagination_with_fix.zip && \
-    wget https://github.com/rogenobl/narou/releases/download/v0.2/sitesettinghandler.zip
+    default-jdk \
+    build-essential \
+    unzip wget && \
+    rm -rf /var/lib/apt/lists/* 
 
 COPY ${AOZORA_EPUB3_FILE} /tmp
 COPY ${KINDLEGEN_FILE} /tmp
@@ -35,16 +32,6 @@ RUN mkdir -p /opt/kindlegen && \
 RUN gem install narou -v ${NAROU_VERSION} --no-document
 
 RUN (echo ; cat /usr/local/bundle/gems/narou-${NAROU_VERSION}/preset/custom_chuki_tag.txt) >> /opt/AozoraEpub3/chuki_tag.txt
-
-RUN cd /tmp && \
-    unzip /tmp/pagination_with_fix.zip && \
-    unzip /tmp/sitesettinghandler.zip && \
-    cp -rf /tmp/pagination_with_fix/* /usr/local/bundle/gems/narou-3.8.2/ && \
-    cp -rf /tmp/sitesettinghandler/* /usr/local/bundle/gems/narou-3.8.2/ && \
-    rm -rf /tmp/pagination_with_fix && \
-    rm -fr /tmp/sitesettinghandler && \
-    rm -fr /tmp/pagination_with_fix.zip && \
-    rm -fr /tmp/sitesettinghandler.zip
 
 COPY ext.patch /usr/local/bundle/gems/narou-3.8.2/lib/
 RUN cd /usr/local/bundle/gems/narou-3.8.2/lib/ && \
