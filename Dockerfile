@@ -33,9 +33,5 @@ RUN gem install narou -v ${NAROU_VERSION} --no-document
 
 RUN (echo ; cat /usr/local/bundle/gems/narou-${NAROU_VERSION}/preset/custom_chuki_tag.txt) >> /opt/AozoraEpub3/chuki_tag.txt
 
-COPY ext.patch /usr/local/bundle/gems/narou-3.8.2/lib/
-RUN cd /usr/local/bundle/gems/narou-3.8.2/lib/ && \
-    patch < ext.patch
-
 ENTRYPOINT ["init.sh"]
 CMD ["narou", "web", "-p", "8200", "-n"]
