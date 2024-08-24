@@ -1,18 +1,37 @@
 # narou_docker
 
-
 ## 概要
-WEB小説からの電子書籍データ変換支援ツール
-[Narou.rb](https://github.com/whiteleaf7/narou)をDocker上で動作させます。なるべくパッチは集めたはずですが、なろう運営が変わったので今後どうなるかわかりません。すでにこのNarou.rbは時代遅れかもしれません。
 
-## 使い方
+WEB小説からの電子書籍データ変換支援ツール[Narou.rb](https://github.com/whiteleaf7/narou)をDocker上で動作させます。
 
-### 1. ファイルを集めます
-[Narou.rbをdockerで起動](https://www.tenjiku.biz/2023/04/09/narou-rb%e3%82%92docker%e8%b5%b7%e5%8b%95/)
-で説明しているAozoraEpub3-1.1.1b14Q2.zipとkindlegen_linux_2.6_i386_v2_9.tar.gzを同じフォルダに保存しておきます。
+## 初回のみの作業
 
-### 2. コンテナを起動します
-`$ docker compose up -d --build`
+### ファイル変換に必要なツールをダウンロード
 
-### 3. 以下のURLを開きます
-http://localhost:8200/
+#### AozoraEpub3のダウンロード
+
+[AozoraEpub3](https://github.com/kyukyunyorituryo/AozoraEpub3/releases/tag/v1.1.1b24Q)から**AozoraEpub3-1.1.1b24Q.zip**をダウンロードします。
+
+Dockerfileと同じ階層に配置します。
+
+上記と異なるバージョンを使用する場合はDockerfileの環境変数を変更します。
+
+#### kindlegenのダウンロード
+
+[fp-docker](https://github.com/zzet/fp-docker)から**kindlegen_linux_2.6_i386_v2_9.tar.gz**をダウンロードします。
+
+Dockerfileと同じ階層に配置します。
+
+上記と異なるバージョンを使用する場合はDockerfileの環境変数を変更します。
+
+### narou.rbの起動
+
+以下のコマンドを実行します。
+
+`docker compose up -d --build`
+
+### narou.rbへアクセス
+
+以下のアドレスでアクセスします。
+
+<http://localhost:8200/>
