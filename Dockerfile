@@ -1,6 +1,6 @@
 FROM ruby:3.0.6
 ENV LANG ja_JP.UTF-8
-ENV AOZORA_EPUB3_FILE AozoraEpub3-1.1.1b14Q2.zip
+ENV AOZORA_EPUB3_FILE AozoraEpub3-1.1.1b24Q.zip
 ENV KINDLEGEN_FILE kindlegen_linux_2.6_i386_v2_9.tar.gz
 ENV NAROU_VERSION 3.8.2
 WORKDIR /opt/narou
