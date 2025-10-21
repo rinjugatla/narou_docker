@@ -12,7 +12,7 @@ WEB小説からの電子書籍データ変換支援ツール[Narou.rb](https://g
 
 #### AozoraEpub3のダウンロード
 
-[AozoraEpub3](https://github.com/kyukyunyorituryo/AozoraEpub3/releases/tag/v1.1.1b24Q)から**AozoraEpub3-1.1.1b24Q.zip**をダウンロードします。
+[AozoraEpub3](https://github.com/kyukyunyorituryo/AozoraEpub3/releases)から**AozoraEpub3-1.1.1b30Q.zip**をダウンロードします。
 
 Dockerfileと同じ階層に配置します。
 
