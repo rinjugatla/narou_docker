@@ -2,7 +2,7 @@ FROM ruby:3.0.6
 ENV LANG ja_JP.UTF-8
 ENV AOZORA_EPUB3_FILE AozoraEpub3-1.1.1b24Q.zip
 ENV KINDLEGEN_FILE kindlegen_linux_2.6_i386_v2_9.tar.gz
-ENV NAROU_VERSION 3.9.0
+ENV NAROU_VERSION 3.9.1
 WORKDIR /opt/narou
 
 RUN apt-get update && \
@@ -32,7 +32,10 @@ RUN mkdir -p /opt/kindlegen && \
     ln -s /opt/kindlegen/kindlegen /opt/AozoraEpub3 && \
     rm /tmp/${KINDLEGEN_FILE}
 
-RUN gem install narou -v ${NAROU_VERSION} --no-document
+RUN gem install specific_install && \
+    gem specific_install -l 'https://github.com/whiteleaf7/narou.git' && \
+    gem install erubi -v 1.13.1 --no-document && \
+    sed -ie "s/tilt\/erubis/tilt\/erubi/g" /usr/local/bundle/gems/narou-${NAROU_VERSION}/lib/web/appserver.rb
 
 RUN (echo ; cat /usr/local/bundle/gems/narou-${NAROU_VERSION}/preset/custom_chuki_tag.txt) >> /opt/AozoraEpub3/chuki_tag.txt
 
