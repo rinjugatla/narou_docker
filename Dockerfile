@@ -1,4 +1,4 @@
-FROM ruby:3.0.6
+FROM ruby:latest
 ENV LANG ja_JP.UTF-8
 ENV AOZORA_EPUB3_FILE AozoraEpub3-1.1.1b30Q.zip
 ENV KINDLEGEN_FILE kindlegen_linux_2.6_i386_v2_9.tar.gz
