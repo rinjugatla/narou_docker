@@ -32,8 +32,18 @@ RUN mkdir -p /opt/kindlegen && \
     ln -s /opt/kindlegen/kindlegen /opt/AozoraEpub3 && \
     rm /tmp/${KINDLEGEN_FILE}
 
-RUN gem install specific_install && \
-    gem specific_install -l 'https://github.com/whiteleaf7/narou.git' && \
+RUN git config --global user.email "you@example.com" && \
+    git config --global user.name "Your Name" && \
+    git clone 'https://github.com/whiteleaf7/narou.git' /opt/narou && \
+    cd /opt/narou && \
+    git remote add etg-lt 'https://github.com/etg-lt/narou.git' && \
+    git fetch origin && \
+    git fetch etg-lt && \
+    git merge --no-ff etg-lt/patch-1 && \
+    git merge --no-ff etg-lt/patch-2 && \
+    git merge --no-ff etg-lt/patch-3 && \
+    gem build narou.gemspec && \
+    gem install ./narou-${NAROU_VERSION}.gem && \
     gem install erubi -v 1.13.1 --no-document && \
     sed -ie "s/tilt\/erubis/tilt\/erubi/g" /usr/local/bundle/gems/narou-${NAROU_VERSION}/lib/web/appserver.rb
 
