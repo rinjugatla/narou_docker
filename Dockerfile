@@ -37,15 +37,18 @@ RUN git config --global user.email "you@example.com" && \
     git clone 'https://github.com/whiteleaf7/narou.git' /opt/narou && \
     cd /opt/narou && \
     git remote add etg-lt 'https://github.com/etg-lt/narou.git' && \
+    git remote add rogenobl 'https://github.com/rogenobl/narou.git' && \
     git fetch origin && \
     git fetch etg-lt && \
+    git fetch rogenobl && \
     git merge --no-ff etg-lt/patch-1 && \
     git merge --no-ff etg-lt/patch-2 && \
     git merge --no-ff etg-lt/patch-3 && \
+    git merge --no-ff rogenobl/fix/replace_erubis && \
+    git merge --no-ff rogenobl/fix/yokogaki_text_conv && \
     gem build narou.gemspec && \
     gem install ./narou-${NAROU_VERSION}.gem && \
-    gem install erubi -v 1.13.1 --no-document && \
-    sed -ie "s/tilt\/erubis/tilt\/erubi/g" /usr/local/bundle/gems/narou-${NAROU_VERSION}/lib/web/appserver.rb
+    gem install erubi -v 1.13 --no-document
 
 RUN (echo ; cat /usr/local/bundle/gems/narou-${NAROU_VERSION}/preset/custom_chuki_tag.txt) >> /opt/AozoraEpub3/chuki_tag.txt
 
