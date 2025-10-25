@@ -91,3 +91,17 @@ novel_data
   from /usr/local/bundle/bin/narou:25:in `load'
   from /usr/local/bundle/bin/narou:25:in `<main>'
 ```
+
+## 適用するパッチ
+
+narou.rbのバージョン更新が止まっていることにより小説をダウンロードする際に「[ERROR] 小説が削除されているか非公開な可能性があります」等でダウンロードができないなどの問題が発生しています。
+
+本Dockerfileは有志のパッチを適用することでこれらの問題を修正した環境を構築します。
+
+[whiteleaf7/narou](https://github.com/whiteleaf7/narou)リポジトリの`27fb741fd561e2f26aba9fdf9d9b7b4384792be4`(developブランチの25/10/25時点最新コミット)に対して以下のパッチを適用します。
+
+- [251001 小説家になろう 作品情報 取得修正](https://github.com/whiteleaf7/narou/pull/446)
+- [Replace Erubis by Erubi](https://github.com/whiteleaf7/narou/pull/444)
+- [暁 目次取得修正 ページネーション対応](https://github.com/whiteleaf7/narou/pull/442)
+- [ハーメルン 目次取得 投稿日時のタグ避け修正](https://github.com/whiteleaf7/narou/pull/441)
+- [narou convertでテキストファイル指定時に横書き設定が反映されない](https://github.com/whiteleaf7/narou/pull/440)
