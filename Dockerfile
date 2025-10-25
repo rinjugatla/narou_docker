@@ -2,6 +2,7 @@ FROM ruby:latest
 ENV LANG ja_JP.UTF-8
 ENV AOZORA_EPUB3_FILE AozoraEpub3-1.1.1b30Q.zip
 ENV KINDLEGEN_FILE kindlegen_linux_2.6_i386_v2_9.tar.gz
+ENV NAROU_COMMIT_HASH 27fb741fd561e2f26aba9fdf9d9b7b4384792be4
 ENV NAROU_VERSION 3.9.1
 WORKDIR /opt/narou
 
@@ -41,6 +42,7 @@ RUN git config --global user.email "you@example.com" && \
     git fetch origin && \
     git fetch etg-lt && \
     git fetch rogenobl && \
+    git checkout ${NAROU_COMMIT_HASH} && \
     git merge --no-ff etg-lt/patch-1 && \
     git merge --no-ff etg-lt/patch-2 && \
     git merge --no-ff etg-lt/patch-3 && \
