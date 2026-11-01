@@ -92,8 +92,9 @@ narou.rbのバージョン更新が止まっていることにより小説をダ
 
 [whiteleaf7/narou](https://github.com/whiteleaf7/narou)リポジトリの`27fb741fd561e2f26aba9fdf9d9b7b4384792be4`(developブランチの25/10/25時点最新コミット)に対して以下のパッチを適用します。
 
-- [251001 小説家になろう 作品情報 取得修正](https://github.com/whiteleaf7/narou/pull/446)
+- [260728までの各小説サイト修正まとめ](https://github.com/whiteleaf7/narou/pull/456) (`etg-lt/patch-3`)
+  - ハーメルン(R18含む)の目次取得修正・ルビ有り章タイトル対応、カクヨムの目次取得修正、小説家になろう/R18系の作品情報取得修正、暁の目次取得ページネーション対応
+- [暁 目次取得修正 ページネーション対応](https://github.com/whiteleaf7/narou/pull/442) (`etg-lt/patch-2`)
 - [Replace Erubis by Erubi](https://github.com/whiteleaf7/narou/pull/444)
-- [暁 目次取得修正 ページネーション対応](https://github.com/whiteleaf7/narou/pull/442)
-- [ハーメルン 目次取得 投稿日時のタグ避け修正](https://github.com/whiteleaf7/narou/pull/441)
 - [narou convertでテキストファイル指定時に横書き設定が反映されない](https://github.com/whiteleaf7/narou/pull/440)
+- [サイトごとにDL間隔を設定できる download.interval-by-domain を追加](https://github.com/whiteleaf7/narou/pull/458) (`rinjugatla/feature/per-site-download-interval`)
