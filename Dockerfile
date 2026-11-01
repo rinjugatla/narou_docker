@@ -17,9 +17,9 @@ RUN apt-get update && \
     unzip wget && \
     rm -rf /var/lib/apt/lists/* 
 
-RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb && \
-    dpkg -i jdk-21_linux-x64_bin.deb && \
-    rm -rf jdk-21_linux-x64_bin.deb
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-25-jre-headless && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY ${AOZORA_EPUB3_FILE} /tmp
 COPY ${KINDLEGEN_FILE} /tmp
