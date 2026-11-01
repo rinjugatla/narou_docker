@@ -43,7 +43,6 @@ RUN git config --global user.email "you@example.com" && \
     git fetch etg-lt && \
     git fetch rogenobl && \
     git checkout ${NAROU_COMMIT_HASH} && \
-    git merge --no-ff etg-lt/patch-1 && \
     git merge --no-ff etg-lt/patch-2 && \
     git merge --no-ff etg-lt/patch-3 && \
     git merge --no-ff rogenobl/fix/replace_erubis && \
