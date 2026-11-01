@@ -39,14 +39,17 @@ RUN git config --global user.email "you@example.com" && \
     cd /opt/narou && \
     git remote add etg-lt 'https://github.com/etg-lt/narou.git' && \
     git remote add rogenobl 'https://github.com/rogenobl/narou.git' && \
+    git remote add rinjugatla 'https://github.com/rinjugatla/narou.git' && \
     git fetch origin && \
     git fetch etg-lt && \
     git fetch rogenobl && \
+    git fetch rinjugatla && \
     git checkout ${NAROU_COMMIT_HASH} && \
     git merge --no-ff etg-lt/patch-2 && \
     git merge --no-ff etg-lt/patch-3 && \
     git merge --no-ff rogenobl/fix/replace_erubis && \
     git merge --no-ff rogenobl/fix/yokogaki_text_conv && \
+    git merge --no-ff rinjugatla/feature/per-site-download-interval && \
     gem build narou.gemspec && \
     gem install ./narou-${NAROU_VERSION}.gem && \
     gem install erubi -v 1.13 --no-document
